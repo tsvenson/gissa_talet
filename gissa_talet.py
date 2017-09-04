@@ -13,14 +13,22 @@ import random
 
 target = random.randint(1, 100)
 
+print('')
 print('Välkommen till Gissa Talet spelet!')
 print('==================================')
+
+print('')
+name = input('Hej spelaren, vad heter du? [max 10 tecken]: ')
+
+if len(name) > 10:
+    name = name[:10]
 
 guesses = 0
 guess = 0
 
 while guess != target:
     guesses += 1
+    print('')
     guess = int(input(f'Gissa vilket nummer jag tänker på [{guesses}]: '))
     if guess < target:
         print('För lågt gissat!')
@@ -28,5 +36,5 @@ while guess != target:
         print('För högt gissat!')
 
 print('')
-print('Bra gjort!')
+print(f'Bra gjort {name}!')
 print(f'Mitt nummer var {target} och du lyckades gissa rätt på bara {guesses} försök.')
